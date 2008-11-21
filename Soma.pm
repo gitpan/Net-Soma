@@ -5,7 +5,7 @@ use vars qw($DEBUG $VERSION @uris $AUTOLOAD %schemas);
 use SOAP::Lite 0.71 #+trace => debug, objects
 ;
 
-$VERSION = '0.01';
+$VERSION = '0.02';
 
 $DEBUG = 0;
 
@@ -217,8 +217,6 @@ sub AUTOLOAD {
     -> uri($uri)
     -> proxy($self->{url});
 
-  $soap->serializer(Net::Soma::Serializer->rebless($soap->serializer));
-  
 #  local *SOAP::Transport::HTTP::Client::get_basic_credentials = sub {
 #    return $self->{user} => $self->{password};
 #  };
